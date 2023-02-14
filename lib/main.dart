@@ -3,7 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:test_for_riverpod/providers.dart';
 
 void main() {
-  runApp(ProviderScope(child: const MyApp()));
+  runApp(const ProviderScope(child: MyApp()));
 }
 
 class MyApp extends StatelessWidget {
@@ -16,12 +16,14 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: MyHomePage(),
+      home: const MyHomePage(),
     );
   }
 }
 
 class MyHomePage extends ConsumerWidget {
+  const MyHomePage({super.key});
+
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     // counterProviderの前につけれるのは↓の２種類あって、
@@ -33,7 +35,7 @@ class MyHomePage extends ConsumerWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text('Riverpod Demo Home Page'),
+        title: const Text('Riverpod Demo Home Page'),
       ),
       body: Center(
         child: Column(
